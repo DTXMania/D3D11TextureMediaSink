@@ -162,7 +162,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D3D11TextureMediaSink.vcxproj">
+    <ProjectReference Include="..\D3D11TextureMediaSink\D3D11TextureMediaSink.vcxproj">
       <Project>{eaa51c7b-bef2-4ce0-92ff-9924ab48fda7}</Project>
     </ProjectReference>
   </ItemGroup>
