@@ -160,42 +160,42 @@ xcopy "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)D3D11TextureMediaSinkDemoCS
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\AsyncCallback.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\AutoLock.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ComPtrListEx.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\CriticalSection.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\D3D11TextureMediaSink.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\IMarker.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Marker.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\MFAttributesImpl.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Presenter.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\PtrList.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\SampleAllocator.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Scheduler.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\StreamSink.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\targetver.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\TextureMediaSink.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ThreadSafeComPtrQueue.h" />
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ThreadSafePtrQueue.h" />
+    <ClInclude Include="AsyncCallback.h" />
+    <ClInclude Include="AutoLock.h" />
+    <ClInclude Include="ComPtrListEx.h" />
+    <ClInclude Include="CriticalSection.h" />
+    <ClInclude Include="D3D11TextureMediaSink.h" />
+    <ClInclude Include="IMarker.h" />
+    <ClInclude Include="Marker.h" />
+    <ClInclude Include="MFAttributesImpl.h" />
+    <ClInclude Include="Presenter.h" />
+    <ClInclude Include="PtrList.h" />
+    <ClInclude Include="SampleAllocator.h" />
+    <ClInclude Include="Scheduler.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StreamSink.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextureMediaSink.h" />
+    <ClInclude Include="ThreadSafeComPtrQueue.h" />
+    <ClInclude Include="ThreadSafePtrQueue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\dllmain.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Marker.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Presenter.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\SampleAllocator.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Scheduler.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.cpp">
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Marker.cpp" />
+    <ClCompile Include="Presenter.cpp" />
+    <ClCompile Include="SampleAllocator.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\StreamSink.cpp" />
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\TextureMediaSink.cpp" />
+    <ClCompile Include="StreamSink.cpp" />
+    <ClCompile Include="TextureMediaSink.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\dllmodules.def" />
+    <None Include="dllmodules.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
