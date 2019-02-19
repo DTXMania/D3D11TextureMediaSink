@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSinkDemo\stdafx.h" />
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSinkDemo\targetver.h" />
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSinkDemo\DemoPlay.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSinkDemo\stdafx.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSinkDemo\DemoPlay.cpp" />
+  </ItemGroup>
+</Project>

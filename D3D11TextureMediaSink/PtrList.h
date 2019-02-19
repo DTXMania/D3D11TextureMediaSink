@@ -1,0 +1,286 @@
+#pragma once
+
+namespace D3D11TextureMediaSink
+{
+	// 非COMオブジェクトを要素とする双方向リスト。
+	//
+	template <class T, BOOL NULLABLE = FALSE>
+	class PtrList
+	{
+	protected:
+		typedef T* Ptr;
+
+		// Nodes in the linked list
+		struct Node
+		{
+			Node *prev;
+			Node *next;
+			Ptr  item;
+
+			Node() : prev(NULL), next(NULL), item(NULL)
+			{
+			}
+
+			Node(Ptr item) : prev(NULL), next(NULL)
+			{
+				this->item = item;
+			}
+			~Node()
+			{
+			}
+
+			Ptr Item() const { return item; }
+		};
+
+	public:
+		// Object for enumerating the list.
+		class POSITION
+		{
+			friend class PtrList<T>;
+
+		public:
+			POSITION() : pNode(NULL)
+			{
+			}
+
+			bool operator==(const POSITION &p) const
+			{
+				return this->pNode == p.pNode;
+			}
+			bool operator!=(const POSITION &p) const
+			{
+				return this->pNode != p.pNode;
+			}
+
+		private:
+			const Node *pNode;
+
+			POSITION(Node *p) : pNode(p)
+			{
+			}
+		};
+
+	protected:
+		Node    m_anchor;  // Anchor node for the linked list.
+		DWORD   m_count;   // Number of items in the list.
+
+		Node* Front() const
+		{
+			return m_anchor.next;
+		}
+		Node* Back() const
+		{
+			return m_anchor.prev;
+		}
+
+		virtual HRESULT InsertAfter(Ptr item, Node *pBefore)
+		{
+			if (pBefore == NULL)
+				return E_POINTER;
+
+			// Do not allow NULL item pointers unless NULLABLE is true.
+			if (!item && !NULLABLE)
+				return E_POINTER;
+
+			Node *pNode = new Node(item);
+			if (pNode == NULL)
+				return E_OUTOFMEMORY;
+
+			Node *pAfter = pBefore->next;
+
+			pBefore->next = pNode;
+			pAfter->prev = pNode;
+
+			pNode->prev = pBefore;
+			pNode->next = pAfter;
+
+			m_count++;
+
+			return S_OK;
+		}
+		virtual HRESULT GetItem(const Node *pNode, Ptr* ppItem)
+		{
+			if (pNode == NULL || ppItem == NULL)
+				return E_POINTER;
+
+			*ppItem = pNode->item;
+
+			return S_OK;
+		}
+
+		// RemoveItem:
+		// Removes a node and optionally returns the item.
+		// ppItem can be NULL.
+		virtual HRESULT RemoveItem(Node *pNode, Ptr *ppItem)
+		{
+			if (pNode == NULL)
+				return E_POINTER;
+
+			if (pNode == &m_anchor)
+				return E_INVALIDARG;
+
+			Ptr item;
+
+			// The next node's previous is this node's previous.
+			pNode->next->prev = pNode->prev;
+
+			// The previous node's next is this node's next.
+			pNode->prev->next = pNode->next;
+
+			item = pNode->item;
+
+			if (ppItem)
+				*ppItem = item;
+
+			delete pNode;
+			m_count--;
+
+			return S_OK;
+		}
+
+	public:
+		PtrList()
+		{
+			m_anchor.next = &m_anchor;
+			m_anchor.prev = &m_anchor;
+
+			m_count = 0;
+		}
+		virtual ~PtrList()
+		{
+			this->Clear();
+		}
+
+		void Clear()
+		{
+			Node *n = m_anchor.next;
+
+			// Delete the nodes
+			while (n != &m_anchor)
+			{
+				n->item = NULL;
+
+				Node *tmp = n->next;
+				delete n;
+				n = tmp;
+			}
+
+			// Reset the anchor to point at itself
+			m_anchor.next = &m_anchor;
+			m_anchor.prev = &m_anchor;
+
+			m_count = 0;
+		}
+
+		// Insertion functions
+		HRESULT InsertBack(Ptr item)
+		{
+			return this->InsertAfter(item, m_anchor.prev);
+		}
+		HRESULT InsertFront(Ptr item)
+		{
+			return this->InsertAfter(item, &m_anchor);
+		}
+
+		// RemoveBack: Removes the tail of the list and returns the value.
+		// ppItem can be NULL if you don't want the item back.
+		HRESULT RemoveBack(Ptr *ppItem)
+		{
+			if (this->IsEmpty())
+			{
+				return E_FAIL;
+			}
+			else
+			{
+				return this->RemoveItem(this->Back(), ppItem);
+			}
+		}
+
+		// RemoveFront: Removes the head of the list and returns the value.
+		// ppItem can be NULL if you don't want the item back.
+		HRESULT RemoveFront(Ptr *ppItem)
+		{
+			if (this->IsEmpty())
+			{
+				return E_FAIL;
+			}
+			else
+			{
+				return this->RemoveItem(this->Front(), ppItem);
+			}
+		}
+
+		// GetBack: Gets the tail item.
+		HRESULT GetBack(Ptr *ppItem)
+		{
+			if (this->IsEmpty())
+			{
+				return E_FAIL;
+			}
+			else
+			{
+				return this->GetItem(this->Back(), ppItem);
+			}
+		}
+
+		// GetFront: Gets the front item.
+		HRESULT GetFront(Ptr *ppItem)
+		{
+			if (this->IsEmpty())
+			{
+				return E_FAIL;
+			}
+			else
+			{
+				return this->GetItem(this->Front(), ppItem);
+			}
+		}
+
+		// GetCount: Returns the number of items in the list.
+		DWORD GetCount() const { return m_count; }
+
+		bool IsEmpty() const { return (this->GetCount() == 0); }
+
+		// Enumerator functions
+
+		POSITION FrontPosition()
+		{
+			if (this->IsEmpty())
+			{
+				return POSITION(NULL);
+			}
+			else
+			{
+				return POSITION(this->Front());
+			}
+		}
+		POSITION EndPosition() const
+		{
+			return POSITION();
+		}
+
+		HRESULT GetItemByPosition(POSITION pos, Ptr *ppItem)
+		{
+			if (pos.pNode)
+			{
+				return this->GetItem(pos.pNode, ppItem);
+			}
+			else
+			{
+				return E_FAIL;
+			}
+		}
+
+		POSITION Next(const POSITION pos)
+		{
+			if (pos.pNode && (pos.pNode->next != &m_anchor))
+			{
+				return POSITION(pos.pNode->next);
+			}
+			else
+			{
+				return POSITION(NULL);
+			}
+		}
+	};
+}
