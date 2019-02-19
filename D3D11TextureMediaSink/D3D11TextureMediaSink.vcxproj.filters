@@ -1,36 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{5c733c5c-d42f-4593-bab7-04d28a896d55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="TextureMediaSink">
+      <UniqueIdentifier>{2e584adf-e1f5-4620-9418-f745e513939d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\AsyncCallback.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\targetver.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\AutoLock.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\CriticalSection.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ComPtrListEx.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ThreadSafeComPtrQueue.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\ThreadSafePtrQueue.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\MFAttributesImpl.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\PtrList.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\IMarker.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Marker.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Presenter.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\SampleAllocator.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Scheduler.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\StreamSink.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\TextureMediaSink.h">
+      <Filter>TextureMediaSink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\D3D11TextureMediaSink.h" />
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.h" />
+    <ClInclude Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Marker.cpp">
+      <Filter>TextureMediaSink</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\D3D11TextureMediaSink.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Presenter.cpp">
+      <Filter>TextureMediaSink</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\dllmain.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\SampleAllocator.cpp">
+      <Filter>TextureMediaSink</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\Scheduler.cpp">
+      <Filter>TextureMediaSink</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\StreamSink.cpp">
+      <Filter>TextureMediaSink</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\TextureMediaSink.cpp">
+      <Filter>TextureMediaSink</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\dllmain.cpp" />
+    <ClCompile Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\%40MediaFoundation\D3D11TextureMediaSink\D3D11TextureMediaSink\dllmodules.def" />
   </ItemGroup>
 </Project>

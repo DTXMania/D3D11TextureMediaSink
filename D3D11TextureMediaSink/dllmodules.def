@@ -1,0 +1,4 @@
+LIBRARY	"D3D11TextureMediaSink"
+EXPORTS
+    CreateD3D11TextureMediaSink
+    DllMain                         PRIVATE
